@@ -1,0 +1,143 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffaff51403a, pid=23040, tid=16952
+#
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.3-b02 mixed mode windows-amd64)
+# Problematic frame:
+# C  [msvcrt.dll+0x7403a]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000000aeb400):  JavaThread "main" [_thread_in_vm, id=16952, stack(0x00000000026b0000,0x00000000027b0000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000853efff8
+
+Registers:
+EAX=0x0000000000000007, EBX=0x0000000000aeb400, ECX=0x00000001153f0000, EDX=0xffffffff6fffffe8
+ESP=0x00000000027af618, EBP=0x00000000027af708, ESI=0x0000000000000000, EDI=0x00000000027af748
+EIP=0x00007ffaff51403a, EFLAGS=0x0000000000010206
+
+Top of Stack: (sp=0x00000000027af618)
+0x00000000027af618:   000000006da71a7b 00000000027af630
+0x00000000027af628:   0000000000000000 000000000000027f
+0x00000000027af638:   0000000000000000 0000000000000000
+0x00000000027af648:   0000000047fffffe 0000000000aeb400
+0x00000000027af658:   0000000000000001 0000000000000000
+0x00000000027af668:   0000000000000002 000000008001d760
+0x00000000027af678:   00000000028bee6a 0000000000000000
+0x00000000027af688:   0000000000aeb400 000000007fffffff
+0x00000000027af698:   0000000020000003 00000000027af738
+0x00000000027af6a8:   0000000000000000 0000000047fffffe
+0x00000000027af6b8:   0000000000000000 0000000000000000
+0x00000000027af6c8:   00000000027af6c8 0000000000000000
+0x00000000027af6d8:   00000000027af748 000000008009ed28
+0x00000000027af6e8:   0000000000000000 000000008001d760
+0x00000000027af6f8:   0000000000000000 00000000027af728
+0x00000000027af708:   00000000027af790 00000000028b33c2 
+
+Instructions: (pc=0x00007ffaff51403a)
+0x00007ffaff51402a:   0a e0 66 0f e7 41 f0 66 0f e7 49 e0 48 83 e9 40
+0x00007ffaff51403a:   f3 0f 6f 44 0a 10 f3 0f 6f 0c 0a 66 0f e7 41 10 
+
+
+Stack: [0x00000000026b0000,0x00000000027b0000],  sp=0x00000000027af618,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [msvcrt.dll+0x7403a]
+j  java.util.Arrays.copyOf([CI)[C+14
+j  java.lang.AbstractStringBuilder.expandCapacity(I)V+33
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.System.arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V+0
+j  java.util.Arrays.copyOf([CI)[C+14
+j  java.lang.AbstractStringBuilder.expandCapacity(I)V+33
+J  java.lang.StringBuffer.append(I)Ljava/lang/StringBuffer;
+J  cn.yinhui.demo.addBinary(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+j  cn.yinhui.demo.main([Ljava/lang/String;)V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000aa32400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=22436, stack(0x000000000b3c0000,0x000000000b4c0000)]
+  0x000000000aa2b800 JavaThread "CompilerThread1" daemon [_thread_blocked, id=38248, stack(0x000000000b2c0000,0x000000000b3c0000)]
+  0x000000000289b000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=26792, stack(0x000000000b1c0000,0x000000000b2c0000)]
+  0x000000000a8b8800 JavaThread "Attach Listener" daemon [_thread_blocked, id=38220, stack(0x000000000b0c0000,0x000000000b1c0000)]
+  0x000000000a8b8000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=35788, stack(0x000000000afc0000,0x000000000b0c0000)]
+  0x000000000aa08000 JavaThread "Finalizer" daemon [_thread_blocked, id=10056, stack(0x000000000aec0000,0x000000000afc0000)]
+  0x000000000aa05800 JavaThread "Reference Handler" daemon [_thread_blocked, id=31084, stack(0x000000000adc0000,0x000000000aec0000)]
+=>0x0000000000aeb400 JavaThread "main" [_thread_in_vm, id=16952, stack(0x00000000026b0000,0x00000000027b0000)]
+
+Other Threads:
+  0x000000000aa01400 VMThread [stack: 0x000000000acc0000,0x000000000adc0000] [id=40644]
+  0x000000000aa33400 WatcherThread [stack: 0x000000000b4c0000,0x000000000b5c0000] [id=40004]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 304640K, used 148071K [0x000000032d2a0000, 0x0000000342690000, 0x00000004811f0000)
+  eden space 261184K, 56% used [0x000000032d2a0000,0x0000000336339f48,0x000000033d1b0000)
+  from space 43456K, 0% used [0x000000033fc20000,0x000000033fc20000,0x0000000342690000)
+  to   space 43456K, 0% used [0x000000033d1b0000,0x000000033d1b0000,0x000000033fc20000)
+ PSOldGen        total 9019520K, used 8765440K [0x00000000853f0000, 0x00000002abc10000, 0x000000032d2a0000)
+  object space 9019520K, 97% used [0x00000000853f0000,0x000000029c3f0090,0x00000002abc10000)
+ PSPermGen       total 21248K, used 2970K [0x000000007fff0000, 0x00000000814b0000, 0x00000000853f0000)
+  object space 21248K, 13% used [0x000000007fff0000,0x00000000802d6910,0x00000000814b0000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\bin\javaw.exe
+0x00007ffaffbd0000 - 0x00007ffaffda1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffaff840000 - 0x00007ffaff8eb000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffafc440000 - 0x00007ffafc65d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffafd9b0000 - 0x00007ffafda52000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffaff4a0000 - 0x00007ffaff53e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffafd210000 - 0x00007ffafd269000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffaff370000 - 0x00007ffaff491000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffafd310000 - 0x00007ffafd475000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffafc660000 - 0x00007ffafc67e000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffafd160000 - 0x00007ffafd194000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffafcfd0000 - 0x00007ffafd152000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffaff2c0000 - 0x00007ffaff2ee000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000006d890000 - 0x000000006de48000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\server\jvm.dll
+0x00007ffafa110000 - 0x00007ffafa133000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00000000001c0000 - 0x00000000001eb000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffafc680000 - 0x00007ffafc6c2000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x000000006d3b0000 - 0x000000006d3ba000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\hpi.dll
+0x00007ffaff360000 - 0x00007ffaff368000 	C:\WINDOWS\System32\PSAPI.DLL
+0x000000006d800000 - 0x000000006d80e000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\verify.dll
+0x000000006d450000 - 0x000000006d477000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\java.dll
+0x000000006d850000 - 0x000000006d862000 	D:\eclipse\Common\binary\com.sun.java.jdk.win32.x86_64_1.6.0.013\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: cn.yinhui.demo
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_101
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Java\jdk1.8.0_101\bin;D:\Matlab\runtime\win64;D:\Matlab\bin;D:\Matlab\polyspace\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Users\Òü»Ô\AppData\Local\Microsoft\WindowsApps;
+USERNAME=Òü»Ô
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 63 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 24 (8 cores per cpu, 2 threads per core) family 6 model 15 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 66833324k(25521796k free), swap 76794796k(21891948k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.3-b02) for windows-amd64 JRE (1.6.0_13-b03), built on Mar  9 2009 10:50:19 by "java_re" with MS VC++ 8.0
+
+time: Fri Dec 16 15:34:39 2016
+elapsed time: 43 seconds
+
