@@ -1,6 +1,5 @@
 package leetCode;
 
-import edu.princeton.cs.algs4.In;
 
 public class MedianOfTwoSortedArrays {
  /*   There are two sorted arrays nums1 and nums2 of size m and n respectively.
