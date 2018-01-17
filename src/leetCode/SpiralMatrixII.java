@@ -1,4 +1,4 @@
-package JianZhiOffer;
+package leetCode;
 
 public class SpiralMatrixII {
   /*  Given an integer n, generate a square matrix filled with elements from 1 to
