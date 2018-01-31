@@ -23,11 +23,23 @@ public class MaxChunksToMakeSortedII {
     However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks possible.*/
 
     public int maxChunksToSorted(int[] arr) {
-        if(arr==null || arr.length==0) return 0;
-        int count=1;
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]>=arr[i-1]) count++;
+        int lens=arr.length;
+        int[] maxOfLeft=new int[lens];
+        int[] minOfRight=new int[lens];
+        maxOfLeft[0]=arr[0];
+        for(int i=1;i<lens;i++){
+            maxOfLeft[i]=Math.max(maxOfLeft[i-1],arr[i]);
         }
-        return count;
+        minOfRight[lens-1]=arr[lens-1];
+        for(int i=lens-2;i>=0;i--){
+            minOfRight[i]=Math.min(minOfRight[i+1],arr[i]);
+        }
+        int res=0;
+        for(int i=0;i<lens-1;i++){
+            if(maxOfLeft[i]<=minOfRight[i+1]) res++;
+        }
+        return res+1;
+
     }
+
 }
