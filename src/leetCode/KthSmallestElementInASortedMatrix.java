@@ -15,7 +15,24 @@ public class KthSmallestElementInASortedMatrix {
     k = 8,
 
             return 13*/
-   public int kthSmallest(int[][] matrix, int k) {
+   public static int kthSmallest(int[][] matrix, int k) {
+      int m=matrix.length,n=matrix[0].length;
+      int lo=matrix[0][0],hi=matrix[m-1][n-1];
+      while(lo<hi){
+         int mid=lo+(hi-lo)/2;
+         int count=0,j=n-1;
+         for(int i=0;i<m;i++){
+            while(j>=0&&matrix[i][j]>mid) j--;
+            count+=j+1;
+         }
+         if(count<k) lo=mid+1;
+         else hi=mid;
+      }
+      return lo;
+   }
 
+   public static void main(String[] args) {
+      int[][] in={{1,  5,  9},{10, 11, 13},{12, 13, 15}};
+      System.out.println(kthSmallest(in,8));
    }
 }
