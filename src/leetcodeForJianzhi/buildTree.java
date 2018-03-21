@@ -1,6 +1,5 @@
 package leetcodeForJianzhi;
 
-import JianZhiOffer.reConstructBinaryTree.TreeNode;
 
 /*题目描述
 
