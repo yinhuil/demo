@@ -34,7 +34,7 @@ public class MaximumSwap {
    }
 
     public static void main(String[] args) {
-        int num=2736;
+        int num=9973;
         System.out.println(maximumSwap(num));
     }
 }
