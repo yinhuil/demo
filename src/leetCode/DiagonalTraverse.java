@@ -1,5 +1,8 @@
 package leetCode;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class DiagonalTraverse {
    /* Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
 
@@ -37,5 +40,20 @@ public class DiagonalTraverse {
         int[][] in={{1,2,3},{4,5,6},{7,8,9}};
         System.out.println(findDiagonalOrder(in));
     }
+    public static int[] twosum(int[]nums,int target){
 
+        Arrays.sort(nums);
+        int start=0,end=nums.length-1;
+        while(end>start){
+            int sum=nums[start]+nums[end];
+            if(sum==target){
+                return new int[]{nums[start],nums[end]};
+            }else if(sum>target){
+                end--;
+            }else{
+                start++;
+            }
+        }
+        return null;
+    }
 }
