@@ -4,17 +4,17 @@ public class KthLargestElementInanArray {
 /*    Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
     For example,
     Given [3,2,1,5,6,4] and k = 2, return 5.*/
-    public int findKthLargest(int[] nums, int k) {
+    public static int findKthLargest(int[] nums, int k) {
         return quickSelect(nums,k-1,0,nums.length-1);
     }
     public static int quickSelect(int[] nums,int k,int left,int right){
         int mid=nums[(left+right)/2];
         int orgl=left,orgr=right;
         while (left<=right){
-            while (nums[left]>mid){
+            while (nums[left]<mid){
                 left++;
             }
-            while (nums[right]<mid){
+            while (nums[right]>mid){
                 right--;
             }
             if(left<=right){
@@ -31,5 +31,10 @@ public class KthLargestElementInanArray {
         int temp=nums[idx1];
         nums[idx1]=nums[idx2];
         nums[idx2]=temp;
+    }
+
+    public static void main(String[] args) {
+        int[] in={2,8,7,1,3,5,6,4};
+        System.out.println(findKthLargest(in,2));
     }
 }
